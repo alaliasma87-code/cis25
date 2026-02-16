@@ -1,0 +1,44 @@
+#include <iostream> // Header file for Input/Output
+using namespace std;
+
+// Function for Option 1
+void showGreeting() {
+    cout << "Hello! You selected Option 1." << endl;
+}
+
+// Function for Option 2
+void showTopic() {
+    cout << "Today's topic is C++ Functions and Loops." << endl;
+}
+
+// Function for Option 3
+void showExitMessage() {
+    cout << "Exiting the program. Goodbye!" << endl;
+}
+
+int main() {
+    int choice = 0;
+
+    // A Loop to keep the menu running until the user exits
+    while (choice != 3) {
+        cout << "\n--- Main Menu ---" << endl;
+        cout << "1. Say Hello" << endl;
+        cout << "2. View Topic" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        // Calling functions based on user menu choice
+        if (choice == 1) {
+            showGreeting();
+        } else if (choice == 2) {
+            showTopic();
+        } else if (choice == 3) {
+            showExitMessage();
+        } else {
+            cout << "Invalid choice, please try again." << endl;
+        }
+    }
+
+    return 0;
+}
