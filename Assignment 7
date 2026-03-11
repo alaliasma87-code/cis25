@@ -1,0 +1,56 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// Requirement: Class to store information from the dataset
+class DatasetRecord {
+public:
+    string id, name, year, rating, genre;
+
+    // Method to display information in a readable format
+    void display() {
+        cout << "ID: " << id << " | Name: " << name << " | Year: " << year 
+             << " | Rating: " << rating << " | Genre: " << genre << endl;
+    }
+};
+
+int main() {
+    // Requirement: Read from the dataset file
+    ifstream file("data.csv"); 
+    if (!file.is_open()) {
+        cout << "Error: Place 'data.csv' in the same folder as this code." << endl;
+        return 1;
+    }
+
+    string line;
+    vector<DatasetRecord> records;
+    
+    // Skip header
+    getline(file, line);
+
+    // Requirement: Load at least 10 entries and 5 fields
+    while (getline(file, line) && records.size() < 10) {
+        stringstream ss(line);
+        DatasetRecord r;
+        
+        getline(ss, r.id, ',');
+        getline(ss, r.name, ',');
+        getline(ss, r.year, ',');
+        getline(ss, r.rating, ',');
+        getline(ss, r.genre, ',');
+
+        records.push_back(r);
+    }
+
+    cout << "--- Module 7: Dataset Results ---" << endl;
+    for (auto& entry : records) {
+        entry.display();
+    }
+
+    file.close();
+    return 0;
+}
