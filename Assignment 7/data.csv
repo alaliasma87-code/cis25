@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// Requirement: Class to store the 5 fields
+class ResistanceRecord {
+public:
+    string id, name, year, rating, genre;
+
+    void display() {
+        cout << "ID: " << id << " | Name: " << name << " | Year: " << year 
+             << " | Rating: " << rating << " | Genre: " << genre << endl;
+    }
+};
+
+int main() {
+    ifstream file("data.csv"); 
+    if (!file.is_open()) {
+        cout << "Error: data.csv not found!" << endl;
+        return 1;
+    }
+
+    string line;
+    vector<ResistanceRecord> entries;
+    getline(file, line); // Skip header
+
+    while (getline(file, line) && entries.size() < 10) {
+        stringstream ss(line);
+        ResistanceRecord r;
+        getline(ss, r.id, ',');
+        getline(ss, r.name, ',');
+        getline(ss, r.year, ',');
+        getline(ss, r.rating, ',');
+        getline(ss, r.genre, ',');
+        entries.push_back(r);
+    }
+
+    for (auto& entry : entries) { entry.display(); }
+    file.close();
+    return 0;
+}
