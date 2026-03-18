@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+// Function to perform Binary Search
+int binarySearch(int arr[], int size, int target) {
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2; // Find the middle
+
+        if (arr[mid] == target) {
+            return mid; // Found the target!
+        }
+        if (arr[mid] < target) {
+            low = mid + 1; // Search the right half
+        } else {
+            high = mid - 1; // Search the left half
+        }
+    }
+    return -1; // Target not found
+}
+
+int main() {
+    // 1. A sorted array (Required for Binary Search)
+    int myNumbers[] = {10, 20, 30, 40, 50, 60, 70};
+    int n = sizeof(myNumbers) / sizeof(myNumbers[0]);
+    int target = 40;
+
+    // 2. Call the function
+    int result = binarySearch(myNumbers, n, target);
+
+    // 3. Output the result
+    if (result != -1) {
+        cout << "Element found at index: " << result << endl;
+    } else {
+        cout << "Element not found." << endl;
+    }
+
+    return 0;
+}
