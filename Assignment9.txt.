@@ -1,0 +1,48 @@
+/* * Name: [Asma Alali ]
+ * Date: March 24, 2026
+ * Course: CIS25 - C++ Programming
+ * Assignment: Module 9 - Classes and Objects
+ */
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// The Class serves as the "Blueprint"
+class Student {
+public:
+    // Attributes
+    string name;
+    int idNumber;
+    string major;
+
+    // Constructor: This runs automatically when a new student is created
+    Student(string n, int id, string m) {
+        name = n;
+        idNumber = id;
+        major = m;
+    }
+
+    // Method to display the data
+    void displayInfo() {
+        cout << "============================" << endl;
+        cout << "      STUDENT RECORD        " << endl;
+        cout << "============================" << endl;
+        cout << "Name:     " << name << endl;
+        cout << "ID:       " << idNumber << endl;
+        cout << "Major:    " << major << endl;
+        cout << "============================" << endl;
+    }
+};
+
+int main() {
+    // Creating the object using the Constructor
+    // Replace the details below with your own info
+    Student student1("Your Name", 123456, "Computer Science");
+
+    // Calling the method to show it works
+    student1.displayInfo();
+
+    return 0;
+}
