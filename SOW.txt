@@ -1,0 +1,12 @@
+1. Project Description
+I will build a C++ application that manages library memberships. The system allows users to create accounts and choose subscription levels (Basic or Premium).
+
+2. System Perspective (Behind the Scenes)
+- Account Creation: When a user signs up, the system saves their username and password into a .txt file.
+- Login Process: The system reads the file to verify credentials.
+- Data Storage: All subscription data is stored permanently.
+
+3. Deliverables
+- C++ Code: main.cpp and related files.
+- Data File: database.txt to store user info.
+- Presentation: A PDF and YouTube video showing the program running.
