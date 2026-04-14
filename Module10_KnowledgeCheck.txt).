@@ -1,0 +1,13 @@
+Module 10 Knowledge Check
+
+1. Explain how constructors and destructors can be used in your project.
+A constructor is used to set the starting values for my product, like the ID and name, as soon as I create it. A destructor is used to show a message and clean up when the program is finished with that product.
+
+2. What similarities do the class, constructor, and destructor share?
+The class, constructor, and destructor all share the exact same name (for example, "Product"). Also, both constructors and destructors do not use a return type like int or void.
+
+3. Write the expected output of your program.
+The output will be:
+Constructor called
+ID: 101, Name: Notebook, Price: $4.99
+Destructor called
